@@ -13,6 +13,6 @@ public class Main {
         long time = System.currentTimeMillis();
 
 
-        System.out.printf("Fill %s: %s/n", listType, System.currentTimeMillis() - time);
+        System.out.printf("Fill %s: %s", listType, System.currentTimeMillis() - time);
     }
 }
