@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
+import java.util.Iterator;
 
 public class Main {
     public static void main(String[] args) {
@@ -16,7 +17,8 @@ public class Main {
         fill(linkedList, count, "LinkedList");
         random_access(arrayList, count, "ArrayList");
         random_access(linkedList, count, "LinkedList");
-
+        sequential_access(linkedList, "ArrayList");
+        sequential_access(linkedList, "LinkedList");
     }
 
     private static void fill(List<Integer> list, int count, String listType) {
@@ -36,6 +38,16 @@ public class Main {
         Random random = new Random();
 
         System.out.println(list.get(random.nextInt(count)));
-        System.out.printf("Fill %s: %s\n", listType, System.currentTimeMillis() - time);
+        System.out.printf("Random access in %s: %s\n", listType, System.currentTimeMillis() - time);
+    }
+
+    private static void sequential_access(List<Integer> list, String listType){
+        long time = System.currentTimeMillis();
+        Iterator<Integer> itr = list.iterator();
+        while (itr.hasNext()){
+            Integer elm = itr.next();
+            //System.out.println(elm);
+        }
+        System.out.printf("Sequental access in %s: %s\n", listType, System.currentTimeMillis() - time);
     }
 }
