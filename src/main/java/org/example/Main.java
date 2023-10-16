@@ -59,7 +59,8 @@ public class Main {
 
         for (int i = 0; i < insertCount; i++){
             //System.out.println(list.get(i));
-            list.set(i, random.nextInt(insertCount));
+            list.add(i, random.nextInt(insertCount));
+
             //System.out.println(list.get(i));
         }
 
@@ -67,6 +68,9 @@ public class Main {
     }
 
     private static void insert_in_end(List<Integer> list, int insertCount, String listType){
+        long time = System.currentTimeMillis();
 
+
+        System.out.printf("Insert in the end of %s: %s\n", listType, System.currentTimeMillis() - time);
     }
 }
