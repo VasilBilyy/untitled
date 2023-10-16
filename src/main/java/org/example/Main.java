@@ -13,16 +13,29 @@ public class Main {
         int insertCount = 1000;
 
         fill(arrayList, count, "ArrayList");
+        fill(linkedList, count, "LinkedList");
+        random_access(arrayList, count, "ArrayList");
+        random_access(linkedList, count, "LinkedList");
+
     }
 
     private static void fill(List<Integer> list, int count, String listType) {
         long time = System.currentTimeMillis();
         Random random = new Random();
+
         for (int i = 0; i < count; i++){
             list.add(random.nextInt(count + 1));
-            System.out.print(list.get(i)+"\n");
+            //System.out.print(list.get(i)+"\n");
         }
 
+        System.out.printf("Fill %s: %s\n", listType, System.currentTimeMillis() - time);
+    }
+
+    private static void random_access(List<Integer> list, int count, String listType){
+        long time = System.currentTimeMillis();
+        Random random = new Random();
+
+        System.out.println(list.get(random.nextInt(count)));
         System.out.printf("Fill %s: %s\n", listType, System.currentTimeMillis() - time);
     }
 }
