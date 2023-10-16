@@ -19,6 +19,8 @@ public class Main {
         random_access(linkedList, count, "LinkedList");
         sequential_access(linkedList, "ArrayList");
         sequential_access(linkedList, "LinkedList");
+        insert_in_begin(arrayList, insertCount, "ArrayList");
+        insert_in_begin(linkedList, insertCount, "LinkedList");
     }
 
     private static void fill(List<Integer> list, int count, String listType) {
@@ -49,5 +51,22 @@ public class Main {
             //System.out.println(elm);
         }
         System.out.printf("Sequental access in %s: %s\n", listType, System.currentTimeMillis() - time);
+    }
+
+    private static void insert_in_begin(List<Integer> list, int insertCount, String listType){
+        long time = System.currentTimeMillis();
+        Random random = new Random();
+
+        for (int i = 0; i < insertCount; i++){
+            //System.out.println(list.get(i));
+            list.set(i, random.nextInt(insertCount));
+            //System.out.println(list.get(i));
+        }
+
+        System.out.printf("Insert in the beginning of %s: %s\n", listType, System.currentTimeMillis() - time);
+    }
+
+    private static void insert_in_end(List<Integer> list, int insertCount, String listType){
+
     }
 }
