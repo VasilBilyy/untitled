@@ -17,10 +17,12 @@ public class Main {
         fill(linkedList, count, "LinkedList");
         random_access(arrayList, count, "ArrayList");
         random_access(linkedList, count, "LinkedList");
-        sequential_access(linkedList, "ArrayList");
+        sequential_access(arrayList, "ArrayList");
         sequential_access(linkedList, "LinkedList");
         insert_in_begin(arrayList, insertCount, "ArrayList");
         insert_in_begin(linkedList, insertCount, "LinkedList");
+        insert_in_end(arrayList, insertCount, "ArrayList");
+        insert_in_end(linkedList, insertCount, "LinkedList");
     }
 
     private static void fill(List<Integer> list, int count, String listType) {
@@ -60,7 +62,6 @@ public class Main {
         for (int i = 0; i < insertCount; i++){
             //System.out.println(list.get(i));
             list.add(i, random.nextInt(insertCount));
-
             //System.out.println(list.get(i));
         }
 
@@ -69,7 +70,12 @@ public class Main {
 
     private static void insert_in_end(List<Integer> list, int insertCount, String listType){
         long time = System.currentTimeMillis();
+        Random random = new Random();
 
+        for (int i = 0; i < insertCount; i++){
+            list.add(random.nextInt(insertCount));
+        }
+        System.out.println(list.size());
 
         System.out.printf("Insert in the end of %s: %s\n", listType, System.currentTimeMillis() - time);
     }
