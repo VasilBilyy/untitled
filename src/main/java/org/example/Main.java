@@ -13,6 +13,9 @@ public class Main {
         int count = 100000;
         int insertCount = 1000;
 
+        System.out.println("Кількість елементів у списку: " + count);
+        System.out.println("Число введених елементів: " + insertCount);
+
         fill(arrayList, count, "ArrayList");
         fill(linkedList, count, "LinkedList");
         random_access(arrayList, count, "ArrayList");
@@ -23,7 +26,8 @@ public class Main {
         insert_in_begin(linkedList, insertCount, "LinkedList");
         insert_in_end(arrayList, insertCount, "ArrayList");
         insert_in_end(linkedList, insertCount, "LinkedList");
-
+        insert_in_middle(arrayList, insertCount, "ArrayList");
+        insert_in_middle(linkedList, insertCount, "LinkedList");
     }
 
     //Заповнення масиву
@@ -87,4 +91,17 @@ public class Main {
     }
 
     //Вставка до середини списку
+    private static void insert_in_middle(List<Integer> list, int insertCount, String listType){
+        long time = System.currentTimeMillis();
+        int start_position = list.size() / 2 - insertCount / 2;
+        int final_position = start_position + insertCount;
+        Random random = new Random();
+
+        for (int i = start_position; i< final_position; i++){
+            list.add(i, random.nextInt(insertCount));
+        }
+
+        System.out.printf("Insert in the middle of %s: %s\n", listType, System.currentTimeMillis() - time);
+
+    }
 }
