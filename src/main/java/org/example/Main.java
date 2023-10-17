@@ -99,5 +99,6 @@ public class Main {
         }
 
         System.out.printf("Insert in the middle of %s: %s\n", listType, System.currentTimeMillis() - time);
+
     }
 }
