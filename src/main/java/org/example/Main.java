@@ -13,6 +13,9 @@ public class Main {
         int count = 100000;
         int insertCount = 1000;
 
+        System.out.println("Кількість елементів у списку: " + count);
+        System.out.println("Число введених елементів: " + insertCount);
+
         fill(arrayList, count, "ArrayList");
         fill(linkedList, count, "LinkedList");
         random_access(arrayList, count, "ArrayList");
